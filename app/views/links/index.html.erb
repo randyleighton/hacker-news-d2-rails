@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="list_all">
+    <h3>News Links</h3>
+    <%= @links.each do |link| %>
+      <%= link_to "#{link.name}", link_path(link) %>
+    <% end %>
+  </div>
+
+  <div class="new_link">
+    <%= link_to "Add a new Link", new_link_path(@link), :class => "btn btn-primary" %>
+  </div>
+
+</div>

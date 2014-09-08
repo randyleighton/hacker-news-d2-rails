@@ -7,31 +7,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <nav id="main-nav">
-            <%= link_to "hacker news", '#', id: "logo" %>
-            <ul class="nav navbar-nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
-            </ul>
-          </nav>
-        </div>
+<div class="container">
+  <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <nav id="main-nav">
+          <%= link_to "News links", '#', id: "logo" %>
+          <ul class="nav navbar-nav pull-right">
+            <li><%= link_to "Home",    '#' %></li>
+            <li><%= link_to "Sign in", '#' %></li>
+          </ul>
+        </nav>
       </div>
-    </header>
-<%= yield %>
+    </div>
+  </header>
 
-
-
-
-
-
-<div class="alert alert-success" role="alert">
-  <%= flash[:notice] %>
-</div>
-<div class="alert alert-danger" role="alert">
-  <%= flash[:alert] %>
+  <div>
+    <img src="http://kravmaganewcastle.com.au/wp-content/uploads/2009/10/links.jpg">
+  </div>
+  <%= yield %>
+  <% if flash[:notice] == "Created Successfully." %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:notice] == "Updated Successfully." %>
+        <div class="alert alert-info" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:notice] == "Removed Successfully." %>
+        <div class="alert alert-info" role="alert">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+  <% if flash[:alert] != nil %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
 </div>
 
 </body>
