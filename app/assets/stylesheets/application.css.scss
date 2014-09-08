@@ -29,7 +29,7 @@
 
 .link-drop {
   padding-left: 2em;
-  padding-top: .25em;
+  padding-top: .55em;
 }
 .each_link:hover {
   color:blue;
@@ -42,3 +42,13 @@
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+.vote_box {
+  display: inline-block;
+  margin-top: 8px;
+  float: left;
+  border: 1px solid black;
+}
+
+
+

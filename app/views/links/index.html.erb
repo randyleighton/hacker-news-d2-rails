@@ -7,11 +7,9 @@
   <div class="list_all">
     <h3>News Links</h3>
     <% @links.each do |link| %>
-      <% @nacho = link.id %>
       <div class="each_link">
         <span class="glyphicon glyphicon-link clickMe" id="<%= link.id %>"> <%= link.name %></span>
       </div>
-
       <div id="link-<%= link.id %>" class="no-show"> <%= render "/layouts/link_content", :object =>link %></div>
     <% end %>
   </div>

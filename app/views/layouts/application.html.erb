@@ -61,8 +61,11 @@
           <%= flash[:notice] %>
         </div>
         <% else %>
-        <div class="alert alert-success" role="alert">
-          <%= flash[:notice] %>
+          <% if flash[:notice] != nil %>
+            <div class="alert alert-success" role="alert">
+            <%= flash[:notice] %>
+          <% end %>
+
         </div>
       <% end %>
 
