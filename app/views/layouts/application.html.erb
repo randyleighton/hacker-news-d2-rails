@@ -14,7 +14,7 @@
         <nav id="main-nav">
           <%= link_to "News links", '#', id: "logo" %>
           <ul class="nav navbar-nav pull-right">
-            <li><%= link_to "Home",    '#' %></li>
+            <li><%= link_to "Home",    'homes#index' %></li>
             <li><%= link_to "Sign in", '#' %></li>
           </ul>
         </nav>
@@ -22,8 +22,8 @@
     </div>
   </header>
 
-  <div>
-    <img src="http://kravmaganewcastle.com.au/wp-content/uploads/2009/10/links.jpg">
+  <div class="jumbotron text-center">
+    <img src="http://kravmaganewcastle.com.au/wp-content/uploads/2009/10/links.jpg" class="text-center" height = 200>
   </div>
   <%= yield %>
   <% if flash[:notice] == "Created Successfully." %>
