@@ -1,0 +1,13 @@
+<div>
+  <%= form_for(@link) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <%= f.submit(:class => "btn btn-primary") %>
+  <% end %>
+</div>
+
+<div id="error_box">
+  <%= render('/layouts/errors', :object => @link) %>
+</div>
