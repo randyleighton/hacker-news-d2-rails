@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
-  # before_filter :authorize, only: [:new, :edit, :update]
+  before_filter :authorize, only: [:new, :edit, :update]
 
   def index
     @links = Link.all

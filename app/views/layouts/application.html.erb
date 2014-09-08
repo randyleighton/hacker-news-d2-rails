@@ -7,25 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <nav id="main-nav">
-          <%= link_to "News links", '#', id: "logo" %>
-          <ul class="nav navbar-nav pull-right">
-            <li><%= link_to "Home",    'homes#index' %></li>
-            <li><%= link_to "Sign in", '#' %></li>
-          </ul>
-        </nav>
-      </div>
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Hacker News</a>
     </div>
-  </header>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+
+      </ul>
+      <form class="navbar-form navbar-left">
+        <input type="text" class="form-control col-lg-8" placeholder="Search">
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+
+            <% if current_user %>
+              <li><span class="logged-in"> Logged in as <%= current_user.email %></span></li>
+              <li><%= link_to "Log Out", logout_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", signup_path %> or</li>
+              <li><%= link_to "Log In", login_path %></li>
+            <% end %>
+            <li><%= link_to "Home",'homes#index' %></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
 
   <div class="jumbotron text-center">
     <img src="http://kravmaganewcastle.com.au/wp-content/uploads/2009/10/links.jpg" height = 200>
   </div>
+
   <%= yield %>
+
   <% if flash[:notice] == "Created Successfully." %>
         <div class="alert alert-success" role="alert">
           <%= flash[:notice] %>
@@ -38,7 +60,12 @@
         <div class="alert alert-info" role="alert">
           <%= flash[:notice] %>
         </div>
+        <% else %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:notice] %>
+        </div>
       <% end %>
+
   <% if flash[:alert] != nil %>
     <div class="alert alert-danger" role="alert">
       <%= flash[:alert] %>
